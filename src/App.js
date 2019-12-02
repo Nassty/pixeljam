@@ -1,7 +1,7 @@
 import React from 'react';
 import Channel from './Channel.js'
 import Landing from './Landing.js'
-import LogHandler from './LogHandler.js'
+//import LogHandler from './LogHandler.js'
 import Hydra from './HydraComponent.js'
 import repl from './repl.js'
 
@@ -20,8 +20,8 @@ export default class App extends React.Component {
 // //  this.setState(calculate(this.state, buttonName));
 // };,
 
-componentWillMount = () => {
-  this.log = new LogHandler()
+componentDidMount = () => {
+  this.log = new window.LogHandler()
   this.log.on('log history', (logs) => {
   //  console.log('got history', logs)
     let channelHistory = this.state.channels.map( (ch, index) => logs.filter((el) => el.channel===index).reverse())

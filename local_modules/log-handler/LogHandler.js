@@ -2,11 +2,13 @@ var io = require('socket.io-client')
 var EventEmitter = require('events').EventEmitter
 
 
-export default class LogHandler extends EventEmitter {
+class LogHandler extends EventEmitter {
   constructor() {
     super()
     let server = `https://${window.location.hostname}:8080`
-    this.signaller = io(server)
+   this.signaller = io(server)
+
+//  this.signaller = io(server)
 
    var self = this
     this.signaller.on('ready', (msg) => {
@@ -35,4 +37,4 @@ export default class LogHandler extends EventEmitter {
   }
 }
 
-//module.exports = LogHandler
+module.exports = LogHandler
